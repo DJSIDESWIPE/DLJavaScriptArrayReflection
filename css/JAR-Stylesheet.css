@@ -1,0 +1,13 @@
+#Email{
+        border: 1px solid #dadada;
+        border-radius: 2px;
+}
+#Email:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+#RandomImage{
+    width: 150px;
+    height: 150px;
+}
