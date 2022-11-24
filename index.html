@@ -4,16 +4,20 @@
         <title>JavaScript Array Reflection</title>
         <link rel="stylesheet" href="./css/JAR-Stylesheet.css">
     </head>
-    <body onload="loadImage()">
-        <form>
-            <input type="email" id="Email" placeholder="Enter Email Address">
-            <button class="submit-btn">Submit Email</button>
-        </form>
-        <div class="img-container" id="img-div">
+    <body onload="loadImages()">
+        <div class="body-container">
+            <h1>JavaScript Array Reflection</h1>
+            <div class="img-container" id="img-div">
+                <button class="refresh-btn">Refresh Image</button>
+            </div>
+            <form>
+                <input class="email-inputfield" type="email" id="Email" placeholder="Enter Email Address">
+                <button class="submit-btn">Submit Email</button>
+            </form>
+            
+            <div class="display-container" id="Display-Images">
 
-        </div>
-        <div class="display-container">
-
+            </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="./js/main.js"></script>

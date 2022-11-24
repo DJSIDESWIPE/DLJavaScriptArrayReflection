@@ -1,13 +1,119 @@
-#Email{
+body{
+    background-image: linear-gradient(to right, #5c5c5c, #d1d1d1, #d1d1d1 , #5c5c5c);
+}
+h1 {
+    text-align: center;
+    text-decoration: underline;
+}
+.body-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 95%;
+    gap: 10px 0;
+}
+.img-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    gap:5px;
+}
+form > button {
+    align-self: center;
+    width: 100px;
+}
+.refresh-btn{
+    padding: 10px;
+    background-color: grey;
+    color: white;
+    border:none;
+    border-radius: 4px;
+}
+.refresh-btn:hover{
+    background-color: #5c5c5c;
+    color: lightgrey;
+}
+.submit-btn{
+    padding: 10px;
+    background-color: grey;
+    color: white;
+    border:none;
+    border-radius: 4px;
+}
+.submit-btn:hover{
+    background-color: #5c5c5c;
+    color: lightgrey;
+}
+.img-container > img{
+    order: -1;
+}
+.email-inputfield{
         border: 1px solid #dadada;
         border-radius: 2px;
 }
-#Email:focus { 
+.email-inputfield:focus{ 
     outline: none;
     border-color: #9ecaed;
     box-shadow: 0 0 10px #9ecaed;
 }
 #RandomImage{
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
+}
+.email-error{
+    border: 1px solid red;
+    
+}
+.email-error:focus{
+    box-shadow: 0 0 10px red;
+}
+.display-container{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: auto;
+}
+.display-images{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+.saved-header{
+    width: 100%;
+    text-align: center;
+}
+.saved-images{
+    width: 100%;
+    height: 250px;
+}
+@media screen and (min-width: 496px) {
+    .saved-images{
+        width: calc(50% - 10px);
+        height: 275px;
+    }
+    form {
+        flex-direction: row;
+    }
+    form > button {
+        width: auto;
+    }
+}
+@media screen and (min-width: 767px) {
+    #RandomImage{
+        width: 300px;
+        height: 300px;
+    }
+    .saved-images{
+        width: calc(33% - 10px);
+        height: 300px;
+    }
 }
