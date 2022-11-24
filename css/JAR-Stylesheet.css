@@ -74,6 +74,11 @@ form > button {
 .email-error:focus{
     box-shadow: 0 0 10px red;
 }
+.form-error-message{
+    color: red;
+    text-align: center;
+}
+
 .display-container{
     display: flex;
     flex-direction: column;

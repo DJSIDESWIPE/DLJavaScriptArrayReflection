@@ -13,7 +13,9 @@ $(".submit-btn").on("click",function(e){
     if(!emailReg.test($emailfield) || $emailfield === ""){
         console.log("invalid email");
         $email.addClass("email-error");
+        $(".form-error-message").html("Please enter a valid email").show();
     } else{
+        $(".form-error-message").hide();
         $email.removeClass("email-error");
         let foundemail = false;
         if(!savedimages){
