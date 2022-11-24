@@ -1,8 +1,7 @@
 let emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-let num = 0;
+let randomnumber = 0;
+let randomimageurl;
 let randomimg = $('<img id="RandomImage">');
-let randomimages = [];
-let randomimageid;
 let savedimages;
 
 $(".submit-btn").on("click",function(e){
@@ -21,13 +20,13 @@ $(".submit-btn").on("click",function(e){
         if(!savedimages){
             savedimages = [{
                 emailaddress: $emailfield,
-                images: [randomimages[randomimageid].download_url]
+                images: [randomimageurl]
             }];
             console.log(`no previous data stored, first data stored is:${savedimages[0].emailaddress}  ${savedimages[0].images}`);
         } else {
             for(var i=0; i < savedimages.length;i++){
                 if(savedimages[i].emailaddress === $emailfield){
-                    savedimages[i].images.push(randomimages[randomimageid].download_url)
+                    savedimages[i].images.push(randomimageurl)
                     console.log(savedimages[i].images);
                     foundemail = true;
                 } else {
@@ -35,11 +34,11 @@ $(".submit-btn").on("click",function(e){
                 }
             }
             if(!foundemail){
-                savedimages.push({emailaddress: $emailfield,images: [randomimages[randomimageid].download_url]});
+                savedimages.push({emailaddress: $emailfield,images: [randomimageurl]});
                 console.log(`${savedimages[savedimages.length-1].emailaddress}  ${savedimages[savedimages.length-1].images}`);
             }
         }
-        displayRandomImage(randomimages.length);
+        randomimage();
         displaySavedImages();
     }
 });
@@ -61,41 +60,32 @@ function displaySavedImages(){
 }
 
 $(".refresh-btn").on("click",function(){
-    displayRandomImage(randomimages.length);
+    randomimage();
 });
 
-function displayRandomImage(randomnumberlimit){
-    randomimageid = randomNumber(randomnumberlimit)
-    console.log(`displaying image ID:${randomimageid}`);
-    randomimg.attr('src', randomimages[randomimageid].download_url);
-    randomimg.appendTo('#img-div');
+function randomimage(){
+    randomnumber = parseInt(Math.random()*1085);
+    getrandomimage(randomnumber)
 }
-function randomNumber(maxnum){
-    maxnum++;
-    num = Math.random()*maxnum;
-    return parseInt(num);
+function getrandomimage(imagenumber){
+    fetch(`https://picsum.photos/id/${imagenumber}/200`)
+    .then(response => response)
+    .then(data=>{
+        console.log(data.status);
+        if(data.status === 404){
+            randomimage();
+        } else if(data.status === 200){
+            console.log(data.url);
+            randomimageurl = data.url;
+            randomimg.attr('src', randomimageurl);
+            randomimg.appendTo('#img-div');
+        } else {
+            console.log("error occured");
+        }
+        
+    })
 }
 
 function loadImages(){
-    getImages(1);
-    for(var i = 2; i<34;i++){
-        getImages(i);
-    }
-    
-}
-function getImages(pagenum){
-    let url = `https://picsum.photos/v2/list?page=${pagenum}`;
-    fetch(url)
-    .then(response => response.json())
-    .then(data=>{
-        for(var i=0;i<data.length;i++){
-            randomimages.push(data[i]);
-        }
-        if(pagenum === 1){
-            displayRandomImage(30);
-        }
-    })
-    .catch(err=>{
-        console.log("error occured");
-    })
+    randomimage();
 }
