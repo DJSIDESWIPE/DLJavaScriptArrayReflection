@@ -76,13 +76,13 @@ function randomimage(){
 //function fetches image info as json and then checks for error messages
 function getrandomimage(imagenumber){
     fetch(`https://picsum.photos/id/${imagenumber}/200`)
-    .then(response => response)
     .then(data=>{
         //console.log(data.status);
         //if the image is not found then generates a new random image as some images have been removed for example image with id 854
-        if(data.status === 404){
+        if(data.status >= 400){
+            console.log("error occured: trying again")
             randomimage();
-        } else if(data.status === 200){
+        } else if(data.status >= 200){
             //if successful then it stores the url for the random image and displays it to the page
             randomimageurl = data.url;
             randomimg.attr('src', randomimageurl);
