@@ -1,86 +1,28 @@
 body{
-    background-image: linear-gradient(to right, #004e92, #007BE6, #007BE6 , #004e92);
+    background-image: linear-gradient(to right, #007e0d, #23c680, #23c680 , #007e0d);
 }
 h1 {
     text-align: center;
     text-decoration: underline dashed;
-}
-img {
-    object-fit: contain;
-}
-button { 
-    cursor: pointer;
-    background-color: white;
-    color: #004e92;
-    border: 2px #007BE6 solid;
-}
-button:hover{
-    border: 2px #9ecaed solid;
-    background-color: #007BE6;
-}
-.body-container{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 95%;
-    gap: 10px 0;
-}
-.img-container{
-    display: flex;
-    flex-direction: column;
-    width: 250px;
-    margin: 0 auto;
-    align-items: center;
-    gap: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 6px;
-    padding: 5px;
-    box-shadow: inset black 0 0 10px 1px;
-}
-.img-container > img{
-    order: -1;
-}
-/* #RandomImage{
-    width: 250px;
-    height: 250px;
-} */
-form{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    gap:5px;
-    margin: auto;
-    width: 250px;
-}
-form > button {
-    align-self: center;
-    width: 100px;
-}
-.refresh-btn{
-    padding: 10px;
-    border-radius: 4px;
+    width: 100%;
 }
 .submit-btn{
-    padding: 10px;
-    border-radius: 4px;
+    margin-right: auto;
+    border-radius: 0px 4px 4px 0px;
+    border: 1px solid #007e0d;
+    color: #007e0d;
+    padding: 5px;
+    
 }
-.email-inputfield{
-        border: 1px solid #dadada;
-        border-radius: 2px;
-        width: 100%;
-        color: #007BE6;
-        padding: 0 10px;
-}
-.email-inputfield::placeholder{
-    text-decoration: dashed;
-    padding: 2px;
-    color: #007BE6;
+.submit-btn:hover{
+    background-color: #007e0d;
+    color: white;
+    cursor: pointer;
 }
 .email-inputfield:focus{ 
     outline: none;
-    border-color: #9ecaed;
-    box-shadow:inset 0 0 10px #9ecaed;
+    border-color: #23c680;
+    box-shadow:inset 0 0 10px #23c680;
 }
 .email-error{
     border: 1px solid red;
@@ -89,115 +31,256 @@ form > button {
 .email-error:focus{
     box-shadow: inset 0 0 10px red;
 }
-.form-error-message{
-    color: red;
-    text-align: center;
-    background-color: white;
-    border-radius: 4px;
-    width: fit-content;
-    margin: 0 auto;
-    padding: 10px;
-    display: none;
-}
-.display-container{
-    display: flex;
-    flex-direction: column;
-    width: 95%;
-    margin: auto;
-    gap: 10px;
-}
-.display-images{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px 5px;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 6px;
-    padding: 15px;
-    box-shadow: inset black 0 0 10px 1px;
-}
-.saved-header{
-    width: 100%;
-    text-align: center;
-    text-decoration: underline;
-}
-.saved-images{
-    width: 100%;
-    height: auto;
-    margin: auto;
-    padding: 20px 0;
-    border-radius: 4px;
-    background-color: white;
-    border: 2px solid #004e92;
+@media screen and (min-width:767px) {
     
-}
-@media screen and (min-width: 496px) {
-    .img-container{
-        padding: 15px;
+    .body-container{
+        display: flex;
+        flex-wrap: wrap;
     }
-    form {
-        flex-direction: row;
-    }
-    form > button {
-        width: auto;
-    }
-    .saved-images{
-        width: calc(50% - 10px);
+    .random-img-container{
+        display: flex;
+        flex-wrap: wrap;
+        width: 275px;
         height: 275px;
+        align-items: center;
+        gap: 10px;
+        border-radius: 6px;
+        padding: 5px;
+        background-color: white;
     }
-}
-@media screen and (min-width: 767px) {
-    .img-container{
-        width: 350px;
+    .random-img-container > img{
+        order: -1;
+        border-radius: 4px;
+        width: 200px;
+        margin: 0 auto;
     }
-    #RandomImage{
-        width: 300px;
-        height: 300px;
+    .random-img-container > .refresh-btn{
+        width: 200px;
+        padding: 15px;
+        border-radius: 50px;
+        color: #007e0d;
+        background-color: white;
+        border: 1px solid #007e0d;
+        text-transform: uppercase;
+        margin: 0 auto;
     }
-    form{
-        width:350px;
+    .refresh-btn:hover{
+        color: white;
+        background-color: #007e0d;
+        cursor: pointer;
     }
-    .email-inputfield{
-        width: calc(100% - 110px);
+    .storage-container{
+        display: flex;
+        width: calc(100% - 300px);
+        margin-left: auto;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 4px;
     }
-    .saved-images{
-        width: calc(33% - 10px);
-        max-width: 350px;
-        height: 300px;
+    .storage-container > form{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
         
     }
-    .body-container{
-        width: 750px;
+    form > .form-header{
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+        color: #007e0d;
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+    form > .email-inputfield{
+        margin-left: auto;
+        border-radius: 4px 0px 0px 4px;
+        border: 1px solid #007e0d;
+        border-right: none;
+        padding: 10px;
+    }
+    .form-error-message{
+        width: 100%;
+        color: red;
+        text-align: center;
+    }
+    .storage-container > div{
+        display: flex;
+        flex-wrap: wrap;
+        
+        width: 100%;
+    }
+    .display-container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .display-container > h2{
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+        color: #007e0d;
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+    .display-container > div{
+        width: calc(50% - 20px);
+        
+    }
+    .display-container>.saved-header{
+        background-color: #007e0d;
+        color: white;
+        padding: 0 5px;
+        margin: 2px 4px;
+        border: 1px black solid;
+        border-radius: 25px;
+    }
+    .display-container>.saved-email{
+        font-size: 1.5rem;
+        text-decoration: underline;
+        padding: 0 5px;
+        word-break: break-all;
+        margin-left: 5px;
+    }
+    .saved-images{
+        padding-left: 10px;
+    }
+    .saved-image{
+        width: 50px;
+        height: 50px;
+        margin: 0 5px;
+        border-radius: 16px;
+        margin-top: 10px;
     }
 }
 @media screen and (min-width:992px) {
     .body-container{
         width: 975px;
+        margin: 0 auto;
     }
+    
 }
 @media screen and (min-width:1260px) {
     .body-container{
         width: 1200px;
-        font-size: 1.5em;
+        margin: 0 auto;
     }
-    form{
-        width: 550px;
+}
+@media screen and (max-width:767px) {
+    .random-img-container{
+        display: flex;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        width: 275px;
+        height: 275px;
+        align-items: center;
+        gap: 10px;
+        border-radius: 6px;
+        padding: 5px;
+        background-color: white;
+    }
+    .random-img-container > img{
+        order: -1;
+        border-radius: 4px;
+        width: 200px;
+        margin: 0 auto;
+    }
+    .random-img-container > .refresh-btn{
+        width: 200px;
+        padding: 15px;
+        border-radius: 50px;
+        color: #007e0d;
+        background-color: white;
+        border: 1px solid #007e0d;
+        text-transform: uppercase;
+        margin: 0 auto;
+    }
+    .refresh-btn:hover{
+        color: white;
+        background-color: #007e0d;
+        cursor: pointer;
+    }
+    .storage-container{
+        display: flex;
+        margin-top: 10px;
+        width: 100%;
+        margin-left: auto;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 4px;
+    }
+    .storage-container > form{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+        
+    }
+    form > .form-header{
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+        color: #007e0d;
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+    form > .email-inputfield{
+        margin-left: auto;
+        border-radius: 4px 0px 0px 4px;
+        border: 1px solid #007e0d;
+        border-right: none;
+        padding: 10px;
+    }
+    form > .submit-btn{
+        margin-right: auto;
+        border-radius: 0px 4px 4px 0px;
+        border: 1px solid #007e0d;
+        border-left: none;
+        padding: 5px;
     }
     .form-error-message{
-        font-size: 2em;
+        width: 100%;
+        color: red;
+        text-align: center;
     }
-    input{
-        font-size: 1em;
+    .display-container > h2{
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+        color: #007e0d;
+        text-decoration: underline;
+        text-transform: uppercase;
     }
-    button { 
-        font-size: 0.75em;
+    .display-container > div{
+        width: 90%;
+        margin: auto;
+        
     }
-    .img-container{
-        width: 550px;
+    .display-container>.saved-header{
+        background-color: #007e0d;
+        color: white;
+        margin: 0 auto;
+        border: 1px black solid;
+        border-radius: 25px;
+        text-align: center;
     }
-    
-    /* #RandomImage{
-        width: 500px;
-        height: 500px;
-    } */
+    .display-container>.saved-email{
+        font-size: 1.5rem;
+        text-decoration: underline;
+        padding-left: 20px;
+        word-break: break-all;
+        margin: 0 auto;
+    }
+    .saved-images{
+        padding-left: 10px;
+    }
+    .saved-image{
+        width: 50px;
+        height: 50px;
+        border-radius: 15px;
+        padding: 5px;
+    }
+}
+@media screen and (max-width:992px) {
+    .body-container{
+        width: 95%;
+        margin: 0 auto;
+    }
 }

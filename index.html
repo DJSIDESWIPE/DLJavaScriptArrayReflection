@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="shortcut icon" href="./img/favicon.ico">
+        <link rel="shortcut icon" href="./img/favicon.ico?">
         <title>JavaScript Array Reflection</title>
         <link rel="stylesheet" href="./css/JAR-Stylesheet.css">
     </head>
     <body onload="randomimage()">
         <div class="body-container">
             <h1>JavaScript Array Reflection</h1>
-            <div class="img-container" id="img-div">
+            <div class="random-img-container" id="img-div">
                 <button class="refresh-btn">Refresh Image</button>
             </div>
-            <form>
-                <input class="email-inputfield" type="email" id="Email" placeholder="Enter Email Address">
-                <button class="submit-btn">Save Image</button>
-            </form>
-            <p class="form-error-message"></p>
-            <div class="display-container" id="Display-Images">
-
+            <div class="storage-container">
+                <form>
+                    <h2 class="form-header">Add to list</h2>
+                    <input class="email-inputfield" type="email" id="Email" placeholder="Enter Email Address">
+                    <button class="submit-btn">Save Image</button>
+                    <p class="form-error-message"></p>
+                </form>
+                
+                <div class="display-container" id="Display-Images">
+                </div>
             </div>
+            
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="./js/main.js"></script>
